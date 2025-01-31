@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Test Your Knowledge - Adjustments in Accounting</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            padding: 20px;
+            background-color: #f4f4f4;
+            text-align: left;
+        }
+        #quiz-container {
+            max-width: 600px;
+            margin: 0 auto;
+            background-color: white;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+        #quiz-container h2 {
+            margin-bottom: 20px;
+        }
+        .question {
+            margin: 15px 0;
+            display: none;
+        }
+        .question input {
+            margin-right: 10px;
+        }
+        #result {
+            margin-top: 20px;
+            display: none;
+        }
+        #result p {
+            font-size: 18px;
+        }
+        button {
+            padding: 10px 20px;
+            font-size: 16px;
+            cursor: pointer;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            margin: 10px;
+        }
+        button:hover {
+            background-color: #45a049;
+        }
+        @media (max-width: 600px) {
+            body {
+                padding: 10px;
+            }
+            #quiz-container {
+                width: 100%;
+            }
+            button {
+                width: 100%;
+            }
+        }
+    </style>
+</head>
+<body>
+
+<div id="quiz-container">
+    <h2>Test Your Knowledge - You have 10 questions!</h2>
+
+    <button id="startQuizBtn">Start Quiz</button>
+
+    <div id="questions">
+        <div class="question">
+            <p>What is a prepayment in accounting?</p>
+            <label><input type="radio" name="q1" value="a"> An expense paid in advance but not yet incurred</label><br>
+            <label><input type="radio" name="q1" value="b"> An expense that is yet to be paid</label><br>
+            <label><input type="radio" name="q1" value="c"> An amount owed to the company</label><br>
+        </div>
+
+        <div class="question">
+            <p>What is accrual accounting?</p>
+            <label><input type="radio" name="q2" value="a"> Recording income and expenses when cash is received or paid</label><br>
+            <label><input type="radio" name="q2" value="b"> Recording income and expenses when they are incurred, regardless of cash flow</label><br>
+            <label><input type="radio" name="q2" value="c"> Only recording income when payment is received</label><br>
+        </div>
+
+        <div class="question">
+            <p>Which of the following would be classified as an accrual?</p>
+            <label><input type="radio" name="q3" value="a"> Revenue earned but not yet received in cash</label><br>
+            <label><input type="radio" name="q3" value="b"> Rent paid for the current year</label><br>
+            <label><input type="radio" name="q3" value="c"> A prepayment made for a future service</label><br>
+        </div>
+
+        <div class="question">
+            <p>Which of the following is an example of a prepayment?</p>
+            <label><input type="radio" name="q4" value="a"> Interest payable</label><br>
+            <label><input type="radio" name="q4" value="b"> A subscription paid in advance for one year</label><br>
+            <label><input type="radio" name="q4" value="c"> Revenue from customers who have paid in advance</label><br>
+        </div>
+
+        <div class="question">
+            <p>What is the purpose of depreciation in accounting?</p>
+            <label><input type="radio" name="q5" value="a"> To allocate the cost of an asset over its useful life</label><br>
+            <label><input type="radio" name="q5" value="b"> To record the full cost of an asset in one year</label><br>
+            <label><input type="radio" name="q5" value="c"> To increase the value of the asset</label><br>
+        </div>
+
+        <div class="question">
+            <p>Which of the following would require a depreciation adjustment?</p>
+            <label><input type="radio" name="q6" value="a"> Cash in the bank</label><br>
+            <label><input type="radio" name="q6" value="b"> A machine purchased for use in production</label><br>
+            <label><input type="radio" name="q6" value="c"> A loan payable</label><br>
+        </div>
+
+        <div class="question">
+            <p>How is prepayment accounted for at the end of the financial year?</p>
+            <label><input type="radio" name="q7" value="a"> It is recorded as an expense</label><br>
+            <label><input type="radio" name="q7" value="b"> It is recorded as an asset until consumed</label><br>
+            <label><input type="radio" name="q7" value="c"> It is written off immediately</label><br>
+        </div>
+
+        <div class="question">
+            <p>Which method is commonly used to calculate depreciation?</p>
+            <label><input type="radio" name="q8" value="a"> Straight-line method</label><br>
+            <label><input type="radio" name="q8" value="b"> Accrual method</label><br>
+            <label><input type="radio" name="q8" value="c"> FIFO method</label><br>
+        </div>
+
+        <div class="question">
+            <p>What is the impact of accruals on the financial statements?</p>
+            <label><input type="radio" name="q9" value="a"> They increase liabilities and decrease equity</label><br>
+            <label><input type="radio" name="q9" value="b"> They increase assets and increase equity</label><br>
+            <label><input type="radio" name="q9" value="c"> They decrease both liabilities and assets</label><br>
+        </div>
+
+        <div class="question">
+            <p>When should depreciation be recognized on a non-current asset?</p>
+            <label><input type="radio" name="q10" value="a"> When the asset is sold</label><br>
+            <label><input type="radio" name="q10" value="b"> From the moment the asset is used in the business</label><br>
+            <label><input type="radio" name="q10" value="c"> At the end of the asset's useful life</label><br>
+        </div>
+
+        <button id="submitBtn" style="display:none;">Submit</button>
+        <button id="retakeQuizBtn" style="display:none;" onclick="retakeQuiz()">Retake Quiz</button>
+    </div>
+
+    <div id="result" style="display:none;">
+        <p id="score"></p>
+    </div>
+</div>
+
+<script>
+    const startQuizBtn = document.getElementById('startQuizBtn');
+    const submitBtn = document.getElementById('submitBtn');
+    const resultDiv = document.getElementById('result');
+    const scoreText = document.getElementById('score');
+    const questions = document.querySelectorAll('.question');
+    const retakeQuizBtn = document.getElementById('retakeQuizBtn');
+
+    const correctAnswers = {
+        q1: 'a',
+        q2: 'b',
+        q3: 'a',
+        q4: 'b',
+        q5: 'a',
+        q6: 'b',
+        q7: 'b',
+        q8: 'a',
+        q9: 'a',
+        q10: 'b'
+    };
+
+    let score = 0;
+
+    startQuizBtn.addEventListener('click', () => {
+        startQuizBtn.style.display = 'none';
+        questions.forEach(question => question.style.display = 'block');
+        submitBtn.style.display = 'inline-block';
+    });
+
+    submitBtn.addEventListener('click', () => {
+        score = 0;
+        questions.forEach(question => {
+            const selectedAnswer = question.querySelector('input:checked');
+            const questionName = question.querySelector('input').name;
+            if (selectedAnswer && selectedAnswer.value === correctAnswers[questionName]) {
+                score++;
+            }
+        });
+        scoreText.textContent = `You got ${score} out of 10`;
+        resultDiv.style.display = 'block';
+        submitBtn.style.display = 'none';
+        retakeQuizBtn.style.display = 'inline-block';
+    });
+
+    function retakeQuiz() {
+        questions.forEach(question => {
+            question.querySelector('input').checked = false;
+        });
+        resultDiv.style.display = 'none';
+        retakeQuizBtn.style.display = 'none';
+        startQuizBtn.style.display = 'inline-block';
+    }
+</script>
+
+</body>
+</html>
